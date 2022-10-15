@@ -1,0 +1,101 @@
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.navigation {
+  display: flex;
+  list-style-type: none;
+  &__item {
+    margin-right: 40px;
+    &:last-child {
+      margin-right: 0;
+    }
+    &_link {
+      text-decoration: none;
+      color: #ffffff;
+    }
+  }
+  &__hamb {
+    display: none;
+    &_label {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  nav {
+    position: relative;
+  }
+  .navigation {
+    position: absolute;
+    background-color: #111111;
+    width: 100vw;
+    bottom: -100%;
+    overflow: hidden;
+    justify-content: center;
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+    z-index: 1;
+    &__item {
+      margin-right: 40px;
+      &:first-child {
+        margin-left: 40px;
+      }
+    }
+    &__hamb {
+      &_label {
+        display: inline-block;
+        padding: 20px 40px;
+        cursor: pointer;
+        color: #ffffff;
+        font-weight: 400;
+        font-size: 24px;
+      }
+      &_line {
+        background: #ffffff;
+        display: block;
+        height: 2px;
+        position: relative;
+        width: 24px;
+        &::before {
+          background: #ffffff;
+          content: "";
+          display: block;
+          height: 100%;
+          position: absolute;
+          transition: all 0.2s ease-out;
+          width: 100%;
+          top: 5px;
+        }
+        &::after {
+          background: #ffffff;
+          content: "";
+          display: block;
+          height: 100%;
+          position: absolute;
+          transition: all 0.2s ease-out;
+          width: 100%;
+          top: -5px;
+        }
+      }
+      &:checked {
+        & ~ .navigation {
+          max-height: 100%;
+        }
+        & ~ .navigation__hamb_label .navigation__hamb_line {
+          background: transparent;
+        }
+        & ~ .navigation__hamb_label .navigation__hamb_line::before {
+          transform: rotate(-45deg);
+          top: 0;
+        }
+        & ~ .navigation__hamb_label .navigation__hamb_line::after {
+          transform: rotate(45deg);
+          top: 0;
+        }
+      }
+    }
+  }
+}
