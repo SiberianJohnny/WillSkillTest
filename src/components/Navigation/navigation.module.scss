@@ -3,21 +3,31 @@ nav {
   flex-direction: column;
   align-items: center;
 }
+
 .navigation {
   display: flex;
   list-style-type: none;
+
   &__item {
-    margin-right: 40px;
-    &:last-child {
-      margin-right: 0;
-    }
+    transition: 0.2s ease;
+
     &_link {
+      display: block;
+      height: 100%;
+      padding: 20px;
       text-decoration: none;
       color: #ffffff;
     }
+
+    &:hover a {
+      color: #444;
+      transition: color 0.2s ease;
+    }
   }
+
   &__hamb {
     display: none;
+
     &_label {
       display: none;
     }
@@ -25,40 +35,48 @@ nav {
 }
 
 @media (max-width: 1100px) {
-  nav {
-    position: relative;
-  }
+
   .navigation {
-    position: absolute;
-    background-color: #111111;
-    width: 100vw;
-    bottom: -100%;
-    overflow: hidden;
-    justify-content: center;
+    flex-direction: column;
     max-height: 0;
-    transition: max-height 0.5s ease-out;
-    z-index: 1;
+    overflow: hidden;
+    transition: all 0.5s;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background-color: #111;
+
     &__item {
-      margin-right: 40px;
-      &:first-child {
-        margin-left: 40px;
+      text-align: center;
+      border-bottom: 1px solid #444;
+      padding: 15px 0;
+      margin: 0;
+
+      &:hover {
+        background-color: #444;
+        transition: background-color 0.2s ease;
       }
     }
+
     &__hamb {
       &_label {
         display: inline-block;
         padding: 20px 40px;
+        margin: 0 -35px;
         cursor: pointer;
         color: #ffffff;
         font-weight: 400;
         font-size: 24px;
       }
+
       &_line {
         background: #ffffff;
         display: block;
         height: 2px;
         position: relative;
         width: 24px;
+
         &::before {
           background: #ffffff;
           content: "";
@@ -69,6 +87,7 @@ nav {
           width: 100%;
           top: 5px;
         }
+
         &::after {
           background: #ffffff;
           content: "";
@@ -80,18 +99,22 @@ nav {
           top: -5px;
         }
       }
+
       &:checked {
-        & ~ .navigation {
+        &~.navigation {
           max-height: 100%;
         }
-        & ~ .navigation__hamb_label .navigation__hamb_line {
+
+        &~.navigation__hamb_label .navigation__hamb_line {
           background: transparent;
         }
-        & ~ .navigation__hamb_label .navigation__hamb_line::before {
+
+        &~.navigation__hamb_label .navigation__hamb_line::before {
           transform: rotate(-45deg);
           top: 0;
         }
-        & ~ .navigation__hamb_label .navigation__hamb_line::after {
+
+        &~.navigation__hamb_label .navigation__hamb_line::after {
           transform: rotate(45deg);
           top: 0;
         }

@@ -2,12 +2,48 @@
   width: 100%;
   min-height: 80px;
   background-color: #111111;
+
   &__content {
     max-width: 1440px;
-    height: 80px;
+    min-height: 80px;
     margin: 0 auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
+  }
+
+  &__cart {
+    position: relative;
+
+    &_value {
+      position: absolute;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 16px;
+      height: 16px;
+      background-color: #FCB500;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 12px;
+      bottom: 0;
+      right: -4px;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .header {
+    &__logo {
+      order: 2;
+    }
+
+    &__navigation {
+      order: 1;
+    }
+
+    &__cart {
+      order: 3;
+    }
   }
 }
