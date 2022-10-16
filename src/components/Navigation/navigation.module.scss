@@ -9,7 +9,7 @@ nav {
   list-style-type: none;
 
   &__item {
-    transition: 0.2s ease;
+    transition: 0.5s ease;
 
     &_link {
       display: block;
@@ -17,11 +17,6 @@ nav {
       padding: 20px;
       text-decoration: none;
       color: #ffffff;
-    }
-
-    &:hover a {
-      color: #444;
-      transition: color 0.2s ease;
     }
   }
 
@@ -35,7 +30,6 @@ nav {
 }
 
 @media (max-width: 1100px) {
-
   .navigation {
     flex-direction: column;
     max-height: 0;
@@ -55,7 +49,7 @@ nav {
 
       &:hover {
         background-color: #444;
-        transition: background-color 0.2s ease;
+        transition: background-color 0.5s ease;
       }
     }
 
@@ -101,20 +95,20 @@ nav {
       }
 
       &:checked {
-        &~.navigation {
+        & ~ .navigation {
           max-height: 100%;
         }
 
-        &~.navigation__hamb_label .navigation__hamb_line {
+        & ~ .navigation__hamb_label .navigation__hamb_line {
           background: transparent;
         }
 
-        &~.navigation__hamb_label .navigation__hamb_line::before {
+        & ~ .navigation__hamb_label .navigation__hamb_line::before {
           transform: rotate(-45deg);
           top: 0;
         }
 
-        &~.navigation__hamb_label .navigation__hamb_line::after {
+        & ~ .navigation__hamb_label .navigation__hamb_line::after {
           transform: rotate(45deg);
           top: 0;
         }
