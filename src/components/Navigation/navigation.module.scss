@@ -9,14 +9,16 @@ nav {
   list-style-type: none;
 
   &__item {
-    transition: 0.5s ease;
-
     &_link {
       display: block;
       height: 100%;
       padding: 20px;
       text-decoration: none;
       color: #ffffff;
+      transition: 0.5s ease;
+    }
+    &:hover .navigation__item_link {
+      color: #fcb500;
     }
   }
 

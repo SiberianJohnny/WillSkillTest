@@ -5,14 +5,13 @@ import Navigation from "../Navigation/Navigation";
 import { useEffect, useState } from "react";
 
 const Header = () => {
-  const [cartValue, setCartValue] = useState(0)
+  const [cartValue, setCartValue] = useState(0);
 
   useEffect(() => {
     return () => {
-      setCartValue(1)
-    }
-  }, [])
-
+      setCartValue(1);
+    };
+  }, []);
 
   return (
     <header className={style.header}>
@@ -20,7 +19,11 @@ const Header = () => {
         <img src={logo} alt="nootris logo" className={style.header__logo} />
         <Navigation className={style.header__navigation} />
         <div className={style.header__cart}>
-          <img src={cart} alt="nootris logo" className={style.header__cart_icon} />
+          <img
+            src={cart}
+            alt="nootris logo"
+            className={style.header__cart_icon}
+          />
           <span className={style.header__cart_value}>{cartValue}</span>
         </div>
       </div>

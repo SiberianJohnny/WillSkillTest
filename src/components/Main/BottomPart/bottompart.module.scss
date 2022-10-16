@@ -96,6 +96,12 @@
 }
 
 @media (max-width: 1100px) {
+  .bottom {
+    &_content {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
   .features {
     &_special_item {
       margin: 0;
@@ -136,7 +142,7 @@
       margin: 50px 0;
     }
     &_special_item img {
-      width: inherit;
+      max-width: 350px;
     }
     &_special_item .features_item_description {
       margin-top: 10px;
